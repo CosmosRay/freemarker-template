@@ -2,6 +2,7 @@ package cn.net.topnet.controller;
 
 import cn.net.topnet.service.FreemarkerService;
 import cn.net.topnet.utils.HtmlUtils;
+import cn.net.topnet.utils.OfficeToHtml;
 import cn.net.topnet.utils.WordUtils;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -59,5 +60,15 @@ public class FreemarkerController {
     @ResponseBody
     public void html(HttpServletRequest request) throws IOException, TemplateException {
         HtmlUtils.testHtml(request);
+    }
+    @GetMapping("/docToHtml")
+    @ResponseBody
+    public void docToHtml(HttpServletRequest request) throws Exception {
+        OfficeToHtml.docToHtml();
+    }
+    @GetMapping("/docxToHtml")
+    @ResponseBody
+    public void docxToHtml(HttpServletRequest request) throws Exception {
+        OfficeToHtml.docxToHtml();
     }
 }
